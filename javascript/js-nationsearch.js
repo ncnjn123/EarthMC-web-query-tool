@@ -104,7 +104,7 @@ fetch(serverTownInfoURL, {
         nation.towns.forEach(item => {
             townsTable.insertAdjacentHTML ('beforeend',
                 `<tr>
-                <td>${playerStats(item.name)}</td>
+                <td>${townStats(item.name)}</td>
                 <td>${item.uuid}</td>
                 </tr>`
             )
