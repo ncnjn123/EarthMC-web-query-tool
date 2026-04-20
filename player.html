@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="style/style-playersearch.css" rel="stylesheet">
+    <title>Earthmc 信息查询工具 玩家查询</title>
+</head>
+<body>
+    <header>
+        <h1>Earthmc 信息查询工具</h1>
+    </header>
+    <nav id="mainNav">
+        <a href="index.html">首页</a>
+        <a id="selected" href="players.html">玩家查询</a>
+        <a href="towns.html">城镇查询</a>
+        <a href="nations.html">国家查询</a>
+    </nav>
+    <main>
+    <div id="mainArea">
+        <nav id="searchNav">
+            <input id="pName" type="text" placeholder="输入要单独查询的玩家名称或者uuid" autocomplete="off">
+            <button id="searchButton" onclick="search()">正在查询本页数据</button>
+        </nav>
+        <h1>玩家<a id="name"></a>的查询结果</h1>
+        <div id="baseInfo">
+            <p>uuid: <a id="uuid"></a></p>
+            <p>称号: <a id="title"></a></p>
+            <p>姓氏: <a id="surName"></a></p>
+            <p>全名: <a id="formattedName"></a></p>
+            <p>个人简介: <a id="about"></a></p>
+        </div>
+        <div id="townAndNation">
+            <h2>加入的组织</h2>
+            所属城镇: <a id="townJoined"></a>
+            所属国家: <a id="nationJoined"></a>
+        </div>
+        <div id="timestamps">
+            <h2>活跃度</h2>
+            <p>加入于: <a id="registered"></a></p>
+            <p>加入城镇于: <a id="joinedTownAt"></a></p>
+            <p>最后一次上线: <a id="lastOnline"></a></p>
+        </div>
+        <div id="status">
+            <h2>状态信息</h2>
+            <p>是否在线: <a id="isOnline"></a></p>
+            <p>是否为NPC: <a id="isNPC"></a></p>
+            <p>是否是市长: <a id="isMayor"></a></p>
+            <p>是否是国王: <a id="isKing"></a></p>
+        </div>
+        <div id="stats">
+            <h2>数据信息</h2>
+            <p>小猪存钱罐钱钱数量: <a id="balance"></a></p>
+            <p>好友数量; <a id="numFriends"></a></p>
+        </div>
+        <div id="ranks">
+            <p>城镇职位: <a id="townRanks"></a> </p>
+            <p>国家职位: <a id="nationRanks"></a></p>
+        </div>
+        <div id="friends">
+            <p>好友列表: </p>
+            <table id="friendsList">
+                <thead>
+                    <tr>
+                        <th>好友名称</th>
+                        <th>好友uuid</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+    </div>
+    </main>
+    <footer>
+        <p>by 1stikun,Github:<a href="https://github.com/ncnjn123/">ncnjn123</p>
+    </footer>
+    <script src="javascript/js-playersearch.js"></script>
+</body>
+</html>

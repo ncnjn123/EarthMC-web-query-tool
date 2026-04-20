@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="style/style-townsearch.css" rel="stylesheet">
+    <title>Earthmc 信息查询工具 城镇查询s</title>
+</head>
+<body>
+    <header>
+        <h1>Earthmc 信息查询工具 城镇查询</h1>
+    </header>
+    <nav id="mainNav">
+        <a href="index.html">首页</a>
+        <a href="players.html">玩家查询</a>
+        <a id="selected"href="towns.html">城镇查询</a>
+        <a href="nations.html">国家查询</a>
+    </nav>
+    <main>
+    <div id="mainArea">
+        <nav id="searchNav">
+            <input id="tName" type="text" placeholder="输入要单独查询的城镇名称或者uuid" autocomplete="off">
+            <button id="searchButton" onclick="search()">正在获取本页数据...</button>
+        </nav>
+        <h1>城镇<a id="name"></a>的查询结果</h1>
+        <p>uuid: <a id="uuid"></a></p>
+        <div id="board">
+            城镇公告
+            <textarea id="boardText"></textarea>
+        </div>
+        <p>创建者: <a id="founder"></a></p>
+        <p>现任市长: <a id="mayor"></a></p>
+        <p>wiki链接: <a id="wiki"></a></p>
+        <p>归属国家(点击查询): <a id="nation"></a></p>
+        <p>创建时间: <a id="registered"></a></p>
+        <p>加入国家时间: <a id="joinedNationAt"></a></p>
+        <p>是否被摧毁: <a id="ruinedAt"></a></p>
+        <div id="status">
+            <h2>城镇状态</h2>
+            是否公共: <a id="isPublic"></a>
+            <p>是否开放: <a id="isOpen"></a></p>
+            <p>是否中立: <a id="isNeutral"></a></p>
+            <p>是否为首都: <a id="Capital"></a></p>
+            <p>是否OverClaim: <a id="isOverClaimed"></a></p>
+            <p>是否有OverClaim保护: <a id="hasOverclaimShield"></a></p>
+            <p>是否被摧毁: <a id="isRuined"></a></p>
+            <p>是否售卖中: <a id="isForSale"></a></p>
+            <p>是否归属于一个国家: <a id="hasNation"></a></p>
+            <p>允许外来者传送: <a id="canOutsidersSpawn"></a></p>
+        </div>
+        <div id="stats">
+            <h2>统计数据</h2>
+            城镇所有区块: <a id="numTownBlocks"></a>, 上限为: <a id="maxTownBlocks"></a>
+            <p>居民数量: <a id="numResidents"></a></p>
+            <p>被信任的外来者数量: <a id="numTrusted"></a></p>
+            <p>被通缉的玩家数量: <a id="numOutlaws"></a></p>
+            <p>小猪存钱罐中钱钱数量: <a id="balance"></a>金锭</p>
+            <p>多少钱贱卖(不卖即为null): <a id="forSalePrice"></a></p>
+        </div>
+        <div id="flags">
+            <h2>一些设置</h2>
+            pvp : <a id="pvp"></a> | 爆炸摧毁地形 : <a id="explosion"></a> | 火焰蔓延 : <a id="fire"></a> | 生物生成 : <a id="mobs"></a>
+        </div>
+        <div id="coordinates">
+            <h2>区块信息</h2>
+            <p>传送点坐标(单位: 方块): X : <a id="spawn-x"></a> Y : <a id="spawn-y"></a> Z: <a id="spawn-z"></a><a id="mapLink">点击在官方地图上查看</p></p>
+            <p>Home区块坐标(单位: 区块) : <a id="homeBlock"></a></p>
+        </div>
+        <div id="ranks">
+            <h2>职位信息</h2>
+            <p>议员:<a id="Councillor"></a></p>
+            <p>建筑师:<a id="Builder"></a></p>
+            <p>招募员:<a id="Recruiter"></a></p>
+            <p>警察:<a id="Police"></a></p>
+            <p>免税员:<a id="Tax-exempt"></a></p>
+            <p>财务官:<a id="Treasurer"></a></p>
+            <p>地产经纪人:<a id="Realtor"></a></p>
+            <p>定居者:<a id="Settler"></a></p>
+        </div>
+        <h2>居民信息</h2>
+        <div id="residents">
+            <table id="residentsTable">
+                <thead>
+                    <tr>
+                        <th>居民名称</th>
+                        <th>居民uuid</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+    </div>
+    </main>
+    <footer>
+        <p>by 1stikun,Github:<a href="https://github.com/ncnjn123/">ncnjn123</p>
+    </footer>
+    <script src="javascript/js-townsearch.js"></script>
+</body>
+</html>

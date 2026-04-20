@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="style/style-main.css" rel="stylesheet">
+    <title>Earthmc 信息查询工具 首页</title>
+</head>
+<body>
+    <header>
+        <h1>Earthmc 信息查询工具</h1>
+    </header>
+    <nav id="mainNav">
+        <a id="selected" href="index.html">首页</a>
+        <a href="players.html">玩家查询</a>
+        <a href="towns.html">城镇查询</a>
+        <a href="nations.html">国家查询</a>
+    </nav>
+    <main>
+        <ol id="serverImformations">
+            <h2 id="currentVersionText">目前Earthmc正运行在    <a id="currentVersion">没查到喵</a>    版本上</h2>
+            <h3 id="onlinePlayersText">在线玩家数:     <a id="onlinePlayers">没查到喵</a> / <a id="maxPlayers">没查到喵</a>    </h3>
+            <h3 id="votePartyText">距离下一次VoteParty还有    <a id="vpRemains">没查到喵</a>    </h3>
+            <div id="serverStatus">
+                服务器天数：<a id="date">没查到喵</a> |
+                服务器当日时间：<ruby><a id="time">没查到喵</a>/1200<rt><progress id="dayProgressBar" value="0" max="1200"></progress></rt></ruby> |
+                当日月相：<a id="moonPhase"></a> |
+                下雨情况：<a id="hasStorm"></a> |
+                打雷情况：<a id="isThundering"></a>
+            </div>
+            <div id="playerStatus">
+                Towny插件注册玩家数量: <a id="numResidents">没查到喵</a> |
+                没有加入城镇的玩家: <a id="numNomads"></a>(其中<a id="numOnlineNomads">没查到喵</a>人在线) |
+                城镇总数: <a id="numTowns">没查到喵</a> |
+                国家总数: <a id="numNations">没查到喵</a>
+            </div>
+            <button onclick="javascript:location.reload();">刷新</button>
+            <a id="refreshingStatus">正在获取数据...</a>
+        </ol>
+    </main>
+    <footer>
+        <p>by 1stikun,Github:<a href="https://github.com/ncnjn123/">ncnjn123</p>
+    </footer>
+    <script src="javascript/js-main.js"></script>
+</body>
+</html>

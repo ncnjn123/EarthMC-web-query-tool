@@ -1,0 +1,125 @@
+/*去除浏览器部分默认样式*/
+
+html, body, div, span, applet, object, iframe, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+/*粘性页脚，让Main吃满剩余页面*/
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+    flex: 1;
+}
+
+main {
+    display: flex;
+    flex: 1;
+}
+
+/*有关header里元素的css*/
+
+header {
+    background-color: #272727;
+    width: 100%;
+    color: aqua;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    user-select: none;
+}
+
+/*导航栏css*/
+#mainNav {
+    width: 100%;
+    height: 2rem;
+    background-color: antiquewhite;
+    border-bottom: #000 solid;
+    border-width: 0.05rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#mainNav a {
+    width: 25%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black;
+    text-decoration: none;
+}
+
+#mainNav a:hover {
+    background-color: #fac37b;
+    transition: 0.2s;
+}
+
+/*有关main里元素的css*/
+#mainArea {
+    flex: 1;
+}
+
+#selected {
+    background-color: #fac37b;
+}
+
+
+#serverImformations {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#serverImformations h2 {
+    margin: 0;
+    height: 5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#serverImformations h3 {
+    margin: 0;
+    height: 3rem;
+
+}
+
+#serverImformations p {
+    margin: 0;
+    height: 3rem;
+}
+
+/*有关footer里元素的css*/
+footer {
+    background-color: #232323;
+    width: 100%;
+    height: 2rem;
+    color: plum;
+    text-align: center;
+}

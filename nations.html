@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="style/style-nations.css" rel="stylesheet">
+    <title>Earthmc 信息查询工具 国家查询</title>
+</head>
+<body>
+    <header>
+        <h1>Earthmc 信息查询工具 国家查询</h1>
+    </header>
+    <nav id="mainNav">
+        <a href="index.html">首页</a>
+        <a href="players.html">玩家查询</a>
+        <a href="towns.html">城镇查询</a>
+        <a id="selected" href="nations.html">国家查询</a>
+    </nav>
+    <main>
+    <div id="mainArea">
+        <nav id="searchNav">
+            <button id="listAll" onclick="searchAll()">查询服务器所有国家列表</button>
+            <input id="nationName" type="text" placeholder="输入要单独查询的国家名称或者uuid" autocomplete="off">
+            <button id="searchButton" onclick="search()">查询国家具体信息喵!!!</button>
+        </nav>
+        <table id="nationList">
+            <thead>
+                <tr>
+                    <th>国家名称(点击查询具体信息)</th>
+                    <th>国家uuid</th>
+                </tr>
+            </thead>
+            <tbody>
+
+            </tbody>
+        </table>
+    </div>
+    </main>
+    <footer>
+        <p>by 1stikun,Github:<a href="https://github.com/ncnjn123/">ncnjn123</p>
+    </footer>
+    <script src="javascript/js-nations.js"></script>
+</body>
+</html>
