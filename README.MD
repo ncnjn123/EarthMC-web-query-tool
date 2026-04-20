@@ -6,9 +6,9 @@
 - 如果你不会以上操作，可以在我的网站上在线使用 [tool.njn18th.xyz](https://tool.njn18th.xyz)
 
 --关于JS中填入API地址的位置    (文件-行数-变量名)
-js-main 第1行    serverInfoURL
-js-playersearch 第30行    serverTownInfoURL
-js-towns 第1行    serverTownInfoURL
-js-townsearch 第60行    serverTownInfoURL
-js-nations 第1行    serverNationInfoURL
-js-nationsearch 第54行 serverTownInfoURL
+- js-main 第1行    serverInfoURL
+- js-playersearch 第30行    serverTownInfoURL
+- js-towns 第1行    serverTownInfoURL
+- js-townsearch 第60行    serverTownInfoURL
+- js-nations 第1行    serverNationInfoURL
+- js-nationsearch 第54行 serverTownInfoURL
