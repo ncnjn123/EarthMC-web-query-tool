@@ -15,9 +15,10 @@
         <a href="players.html">玩家查询</a>
         <a href="towns.html">城镇查询</a>
         <a href="nations.html">国家查询</a>
+        <a href="about.html">关于</a>
     </nav>
-    <main>
-        <ol id="serverImformations">
+    <main id="mainArea">
+        <div id="serverImformations">
             <h2 id="currentVersionText">目前Earthmc正运行在    <a id="currentVersion">没查到喵</a>    版本上</h2>
             <h3 id="onlinePlayersText">在线玩家数:     <a id="onlinePlayers">没查到喵</a> / <a id="maxPlayers">没查到喵</a>    </h3>
             <h3 id="votePartyText">距离下一次VoteParty还有    <a id="vpRemains">没查到喵</a>    </h3>
@@ -36,11 +37,12 @@
             </div>
             <button onclick="javascript:location.reload();">刷新</button>
             <a id="refreshingStatus">正在获取数据...</a>
-        </ol>
+        </div>
     </main>
     <footer>
         <p>by 1stikun,Github:<a href="https://github.com/ncnjn123/">ncnjn123</p>
     </footer>
     <script src="javascript/js-main.js"></script>
+    <script src="javascript/effects.js"></script>
 </body>
 </html>

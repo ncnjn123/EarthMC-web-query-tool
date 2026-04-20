@@ -1,4 +1,4 @@
-const serverInfoURL = 'https://api.earthmc.net/v4'
+const serverInfoURL = '/api/v4'
 let moonPhaseIndex
 let mcStartTime
 let dateChar

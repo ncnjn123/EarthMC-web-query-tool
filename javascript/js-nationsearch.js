@@ -52,6 +52,10 @@ let tempedTable = 0
 
 //EarthMC API地址(先注释一下，开服后取消注释)
 const serverTownInfoURL = '/api/v4/nations'
+
+// 显示加载动画
+if (typeof showLoading === 'function') showLoading('正在查询国家信息...')
+
 fetch(serverTownInfoURL, {
     method: "POST",
     headers: {
@@ -104,7 +108,7 @@ fetch(serverTownInfoURL, {
         nation.towns.forEach(item => {
             townsTable.insertAdjacentHTML ('beforeend',
                 `<tr>
-                <td>${townStats(item.name)}</td>
+                <td>${playerStats(item.name)}</td>
                 <td>${item.uuid}</td>
                 </tr>`
             )
@@ -154,8 +158,20 @@ function nationStats(nationName) {
 function search() {
     let nationNameInput = document.getElementById('nName').value
     if(nationNameInput == '') {
-        alert("在输入框输入国家名字喵")
+        // 输入框震动
+        const input = document.getElementById('nName')
+        input.classList.add('input-shake')
+        setTimeout(() => input.classList.remove('input-shake'), 150)
+        alert("请输入国家名称")
     } else {
-        window.location.href = `town.html?search=${encodeURIComponent(nationNameInput)}`
+        // 按钮变成搜索中状态
+        const btn = document.getElementById('searchButton')
+        btn.innerHTML = '搜索中...'
+        btn.classList.add('searching')
+        btn.disabled = true
+        
+        setTimeout(() => {
+            window.location.href = `nation.html?search=${encodeURIComponent(nationNameInput)}`
+        }, 200)
     }
 }

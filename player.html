@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="style/style-playersearch.css" rel="stylesheet">
+    <link href="style/style-playerdetail.css" rel="stylesheet">
     <title>Earthmc 信息查询工具 玩家查询</title>
 </head>
 <body>
@@ -15,12 +15,13 @@
         <a id="selected" href="players.html">玩家查询</a>
         <a href="towns.html">城镇查询</a>
         <a href="nations.html">国家查询</a>
+        <a href="about.html">关于</a>
     </nav>
     <main>
     <div id="mainArea">
         <nav id="searchNav">
             <input id="pName" type="text" placeholder="输入要单独查询的玩家名称或者uuid" autocomplete="off">
-            <button id="searchButton" onclick="search()">正在查询本页数据</button>
+            <button id="searchButton" onclick="search()">查询玩家具体信息</button>
         </nav>
         <h1>玩家<a id="name"></a>的查询结果</h1>
         <div id="baseInfo">
@@ -51,10 +52,10 @@
         <div id="stats">
             <h2>数据信息</h2>
             <p>小猪存钱罐钱钱数量: <a id="balance"></a></p>
-            <p>好友数量; <a id="numFriends"></a></p>
+            <p>好友数量: <a id="numFriends"></a></p>
         </div>
         <div id="ranks">
-            <p>城镇职位: <a id="townRanks"></a> </p>
+            <p>城镇职位: <a id="townRanks"></a></p>
             <p>国家职位: <a id="nationRanks"></a></p>
         </div>
         <div id="friends">
@@ -75,5 +76,6 @@
         <p>by 1stikun,Github:<a href="https://github.com/ncnjn123/">ncnjn123</p>
     </footer>
     <script src="javascript/js-playersearch.js"></script>
+    <script src="javascript/effects.js"></script>
 </body>
 </html>

@@ -1,176 +1,339 @@
-/*去除浏览器部分默认样式*/
+/* ===== EarthMC Pro Theme - 城镇详情页（无动态背景）===== */
 
-html, body, div, span, applet, object, iframe, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed,
-figure, figcaption, footer, hgroup,
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    font-size: 100%;
-    font: inherit;
-    vertical-align: baseline;
+:root {
+  --primary: #6366f1;
+  --primary-soft: rgba(99, 102, 241, 0.15);
+  --secondary: #06b6d4;
+  --secondary-soft: rgba(6, 182, 212, 0.12);
+  --accent: #f472b6;
+  --bg-deep: #0c0c14;
+  --bg-elevated: #12121c;
+  --bg-card: rgba(255, 255, 255, 0.02);
+  --bg-hover: rgba(255, 255, 255, 0.04);
+  --bg-input: rgba(255, 255, 255, 0.03);
+  --border: rgba(255, 255, 255, 0.05);
+  --border-accent: rgba(99, 102, 241, 0.2);
+  --text: #f1f5f9;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+  --text-link: #818cf8;
+  --radius-lg: 16px;
+  --radius-md: 12px;
+  --radius-sm: 8px;
+  --radius-full: 9999px;
+  --shadow-glow: 0 0 40px rgba(99, 102, 241, 0.08);
+  --transition-fast: 0.15s ease;
+  --transition-base: 0.25s ease;
 }
 
-/*粘性页脚，让Main吃满剩余页面*/
-
-html, body {
-  margin: 0;
-  padding: 0;
-  height: 100%;
-}
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
 body {
-    display: flex;
-    flex-direction: column;
-    min-height: 100%;
-    flex: 1;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto, sans-serif;
+  background: var(--bg-deep);
+  color: var(--text);
+  min-height: 100vh;
+  line-height: 1.7;
+  letter-spacing: -0.01em;
+  overflow-x: hidden;
+  position: relative;
+  -webkit-font-smoothing: antialiased;
 }
 
-main {
-    display: flex;
-    flex: 1;
-}
+/* 无动态背景 - 纯净深色 */
 
-/*有关header里元素的css*/
+/* ===== Header ===== */
+header { padding: 2.5rem 1.5rem 1.25rem; text-align: center; position: relative; z-index: 1; }
+header h1 { font-size: 1.375rem; font-weight: 700; color: #fff; letter-spacing: -0.02em; }
 
-header {
-    background-color: #272727;
-    width: 100%;
-    color: aqua;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    user-select: none;
-}
-
-/*导航栏css*/
+/* ===== Navigation ===== */
 #mainNav {
-    width: 100% !important;
-    height: 2rem !important;
-    background-color: antiquewhite;
-    border-bottom: #000 solid;
-    border-width: 0.05rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: inline-flex;
+  justify-content: center;
+  gap: 2px;
+  padding: 4px;
+  margin: 0 auto 2rem;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-full);
+  position: relative;
+  z-index: 1;
 }
 
 #mainNav a {
-    width: 25%;
-    height: 2rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: black;
-    text-decoration: none;
+  padding: 0.5rem 1rem;
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-size: 0.875rem;
+  font-weight: 500;
+  border-radius: var(--radius-full);
+  transition: var(--transition-fast);
 }
 
-#mainNav a:hover {
-    background-color: #fac37b;
-    transition: 0.2s;
-}
+#mainNav a:hover { color: var(--text); background: var(--bg-hover); }
+#mainNav a#selected { color: #fff; background: var(--primary); font-weight: 600; }
 
-/*有关main里元素的css*/
-main h1,h2,h3,h4,h5,h6 {
-    text-align: center;
-}
+/* ===== Main ===== */
+main { max-width: 820px; margin: 0 auto 2.5rem; padding: 0 1.25rem; position: relative; z-index: 1; }
 
 #mainArea {
-    flex: 1;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
+  position: relative;
+  transition: var(--transition-base);
 }
 
+#mainArea:hover { border-color: var(--border-accent); box-shadow: var(--shadow-glow); }
+
+/* ===== 搜索栏 ===== */
 #searchNav {
-    background-color: antiquewhite;
-    width: 100%;
-    height: 3rem;
-    user-select: none;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1.5rem;
 }
 
-#selected {
-    background-color: #fac37b;
+#tName {
+  flex: 1;
+  min-width: 200px;
+  padding: 0.875rem 1.25rem;
+  background: var(--bg-input);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-full);
+  color: var(--text);
+  font-family: inherit;
+  font-size: 0.9375rem;
+  outline: none;
+  transition: var(--transition-base);
 }
 
-
-input {
-    width: 40%;
+#tName:focus {
+  border-color: var(--primary);
+  background: rgba(99, 102, 241, 0.05);
+  box-shadow: 0 0 0 3px var(--primary-soft);
 }
 
+#tName::placeholder { color: var(--text-muted); }
+
+/* ===== 搜索按钮状态 ===== */
 #searchButton {
-    float: right;
-    max-width: 10%;
-    min-width: 20%;
-    height: 100%;
-    background-color: aqua;
-    border: #000;
-    border-right: #000 solid;
-    border-width: 0.1rem;
+  padding: 0.875rem 2rem;
+  background: var(--primary);
+  color: #fff;
+  border: none;
+  border-radius: var(--radius-full);
+  font-family: inherit;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition-base);
+  position: relative;
+  overflow: hidden;
 }
 
+#searchButton:hover:not(:disabled) {
+  background: #5558e3;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(99, 102, 241, 0.25);
+}
+
+/* 搜索中状态 */
+#searchButton:disabled {
+  background: var(--text-muted);
+  cursor: not-allowed;
+  transform: none;
+}
+
+#searchButton.searching {
+  background: linear-gradient(90deg, var(--primary), var(--secondary), var(--primary));
+  background-size: 200% 100%;
+  animation: searching-pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes searching-pulse {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+/* 涟漪效果 */
+.ripple {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.35);
+  transform: scale(0);
+  animation: ripple-effect 0.5s ease-out;
+  pointer-events: none;
+}
+
+@keyframes ripple-effect { to { transform: scale(3); opacity: 0; } }
+
+/* ===== 打字震动 ===== */
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-2px); }
+  75% { transform: translateX(2px); }
+}
+
+.input-shake { animation: shake 0.15s ease-in-out; }
+
+/* ===== 加载动画 ===== */
+.loading-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(12, 12, 20, 0.92);
+  backdrop-filter: blur(8px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.3s ease;
+}
+
+.loading-overlay.active { opacity: 1; visibility: visible; }
+
+.loading-spinner {
+  width: 48px;
+  height: 48px;
+  border: 3px solid var(--border);
+  border-top-color: var(--primary);
+  border-right-color: var(--secondary);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.loading-text { 
+  margin-top: 1.25rem; 
+  color: var(--text); 
+  font-size: 0.9375rem; 
+  font-weight: 500;
+}
+
+/* 加载进度点动画 */
+.loading-dots {
+  display: inline-flex;
+  gap: 4px;
+  margin-left: 4px;
+}
+
+.loading-dots span {
+  width: 4px;
+  height: 4px;
+  background: var(--primary);
+  border-radius: 50%;
+  animation: dot-bounce 1.4s ease-in-out infinite;
+}
+
+.loading-dots span:nth-child(1) { animation-delay: 0s; }
+.loading-dots span:nth-child(2) { animation-delay: 0.2s; }
+.loading-dots span:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes dot-bounce {
+  0%, 80%, 100% { transform: scale(0.6); opacity: 0.4; }
+  40% { transform: scale(1); opacity: 1; }
+}
+
+/* ===== 详情卡片 ===== */
 #name {
-    text-align: center;
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 1.25rem;
+  color: #fff;
 }
 
 #board {
-    width: 100%;
-    height: 6rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 1rem;
+  margin-top: 1rem;
 }
 
 #boardText {
-    width: 40%;
-    height: 6rem;
-    float: right;
-    resize: none
+  width: 100%;
+  min-height: 80px;
+  background: transparent;
+  border: none;
+  color: var(--text-secondary);
+  font-family: inherit;
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  resize: vertical;
 }
 
-#residents {
-    width: 100%;
+h1, h2, h3, h4, h5, h6 {
+  text-align: center;
+  margin: 1.25rem 0 0.875rem;
+  color: var(--text);
+  font-weight: 600;
 }
 
-#residents table {
-    width: 100%;
+h1 { font-size: 1.25rem; }
+h2 { font-size: 1.125rem; color: var(--secondary); }
+
+/* 表格 */
+table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  margin-top: 0.875rem;
 }
 
-#residents table tr > :nth-child(1) {
-    width: 50%;
+thead { background: var(--primary-soft); }
+
+th {
+  padding: 0.75rem 1rem;
+  text-align: left;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--primary);
+  font-weight: 600;
 }
 
-#residents table tr > :nth-child(2) {
-    width: 50%;
-    text-align: center;
+td {
+  padding: 0.625rem 1rem;
+  border-bottom: 1px solid var(--border);
+  font-size: 0.875rem;
+  color: var(--text-secondary);
 }
 
-#residents table th {
-    height: 2rem;
-    background-color: aquamarine;
+tbody tr { transition: var(--transition-fast); }
+tbody tr:hover { background: var(--bg-hover); }
+tbody tr:last-child td { border-bottom: none; }
+
+/* ===== 结果渐入动画 ===== */
+.fade-in {
+  animation: fadeIn 0.4s ease-out;
 }
 
-#residents td {
-    height: 2rem;
-    vertical-align: middle;
-    background-color: #ffefd5;
-    text-align: center;
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
-/*有关footer里元素的css*/
-footer {
-    background-color: #232323;
-    width: 100%;
-    height: 2rem;
-    color: plum;
-    text-align: center;
-}
-footer p {
-    height: 2rem;
+/* ===== Footer ===== */
+footer { text-align: center; padding: 2rem 1.5rem; color: var(--text-muted); font-size: 0.8125rem; position: relative; z-index: 1; }
+footer a { color: var(--text-secondary); text-decoration: none; }
+footer a:hover { color: var(--primary); }
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+  #mainNav { display: flex; flex-wrap: wrap; border-radius: var(--radius-md); padding: 6px; }
+  #mainNav a { flex: 1 1 calc(33.333% - 4px); min-width: 80px; text-align: center; font-size: 0.8125rem; padding: 0.5rem 0.5rem; }
+  #searchNav { flex-direction: column; }
+  #tName { width: 100%; min-width: auto; }
 }
