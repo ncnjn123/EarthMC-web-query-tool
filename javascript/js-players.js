@@ -2,8 +2,20 @@
 function search() {
     let playerNameInput = document.getElementById('pName').value
     if(playerNameInput == '') {
-        alert("在输入框输入城镇名字喵")
+        // 输入框震动
+        const input = document.getElementById('pName')
+        input.classList.add('input-shake')
+        setTimeout(() => input.classList.remove('input-shake'), 150)
+        alert("请输入玩家名称或UUID")
     } else {
-        window.location.href = `player.html?search=${encodeURIComponent(playerNameInput)}`
+        // 按钮变成搜索中状态
+        const btn = document.getElementById('searchButton')
+        btn.innerHTML = '搜索中...'
+        btn.classList.add('searching')
+        btn.disabled = true
+        
+        setTimeout(() => {
+            window.location.href = `player.html?search=${encodeURIComponent(playerNameInput)}`
+        }, 200)
     }
 }

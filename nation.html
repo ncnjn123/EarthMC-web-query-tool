@@ -15,12 +15,13 @@
         <a href="players.html">玩家查询</a>
         <a href="towns.html">城镇查询</a>
         <a id="selected" href="nations.html">国家查询</a>
+        <a href="about.html">关于</a>
     </nav>
     <main>
     <div id="mainArea">
         <nav id="searchNav">
             <input id="nName" type="text" placeholder="输入要单独查询的国家名称或者uuid" autocomplete="off">
-            <button id="searchButton" onclick="search()">正在获取本页数据...</button>
+            <button id="searchButton" onclick="search()">查询国家具体信息</button>
         </nav>
         <h1>国家<a id="name"></a>的查询结果</h1>
         <p>uuid: <a id="uuid"></a></p>
@@ -50,7 +51,7 @@
         </div>
         <div id="coordinates">
             <h2>区块信息</h2>
-            <p>传送点坐标(单位: 方块): X : <a id="spawn-x"></a> Y : <a id="spawn-y"></a> Z: <a id="spawn-z"></a>,<a id="mapLink">点击在官方地图上查看</p>
+            <p>传送点坐标(单位: 方块): X : <a id="spawn-x"></a> Y : <a id="spawn-y"></a> Z: <a id="spawn-z"></a>,<a id="mapLink">点击在官方地图上查看</a></p>
         </div>
         <div id="ranks">
             <h2>职位信息</h2>
@@ -94,5 +95,6 @@
         <p>by 1stikun,Github:<a href="https://github.com/ncnjn123/">ncnjn123</p>
     </footer>
     <script src="javascript/js-nationsearch.js"></script>
+    <script src="javascript/effects.js"></script>
 </body>
 </html>

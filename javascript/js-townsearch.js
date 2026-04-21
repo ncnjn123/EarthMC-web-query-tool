@@ -149,10 +149,14 @@ fetch(serverTownInfoURL, {
 
         //加载完了，切换刷新状态
         searchButton.innerHTML = '查询城镇具体信息喵!!!'
+        // 隐藏加载动画
+        if (typeof hideLoading === 'function') hideLoading()
     })
     .catch(error => {
         alert("没有查询到信息")
         searchButton.innerHTML = '查询城镇具体信息喵!!!'
+        // 隐藏加载动画
+        if (typeof hideLoading === 'function') hideLoading()
     })
 
 
@@ -167,8 +171,20 @@ function playerStats(playerName){
 function search() {
     let townNameInput = document.getElementById('tName').value
     if(townNameInput == '') {
-        alert("在输入框输入城镇名字喵")
+        // 输入框震动
+        const input = document.getElementById('tName')
+        input.classList.add('input-shake')
+        setTimeout(() => input.classList.remove('input-shake'), 150)
+        alert("请输入城镇名称")
     } else {
-        window.location.href = `town.html?search=${encodeURIComponent(townNameInput)}`
+        // 按钮变成搜索中状态
+        const btn = document.getElementById('searchButton')
+        btn.innerHTML = '搜索中...'
+        btn.classList.add('searching')
+        btn.disabled = true
+        
+        setTimeout(() => {
+            window.location.href = `town.html?search=${encodeURIComponent(townNameInput)}`
+        }, 200)
     }
 }

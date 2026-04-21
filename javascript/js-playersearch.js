@@ -28,6 +28,10 @@ let friendsList = document.getElementById('friendsList')
 
 //EarthMC API地址
 const serverTownInfoURL = '/api/v4/players'
+
+// 显示加载动画
+if (typeof showLoading === 'function') showLoading('正在查询玩家信息...')
+
 fetch(serverTownInfoURL, {
     method: "POST",
     headers: {
@@ -96,10 +100,14 @@ fetch(serverTownInfoURL, {
         })
         //加载完了，切换刷新状态
         searchButton.innerHTML = '查询玩家具体信息喵!!!'
+        // 隐藏加载动画
+        if (typeof hideLoading === 'function') hideLoading()
     })
     .catch(error => {
         alert("没有查询到信息")
         searchButton.innerHTML = '查询玩家具体信息喵!!!'
+        // 隐藏加载动画
+        if (typeof hideLoading === 'function') hideLoading()
     })
 
 function playerStats(playerName){
@@ -118,8 +126,21 @@ function nationStats(nationName) {
 function search() {
     let playerNameInput = document.getElementById('pName').value
     if(playerNameInput == '') {
-        alert("在输入框输入城镇名字喵")
+        // 输入框震动
+        const input = document.getElementById('pName')
+        input.classList.add('input-shake')
+        setTimeout(() => input.classList.remove('input-shake'), 150)
+        alert("请输入玩家名称或UUID")
     } else {
-        window.location.href = `player.html?search=${encodeURIComponent(playerNameInput)}`
+        // 按钮变成搜索中状态
+        const btn = document.getElementById('searchButton')
+        btn.innerHTML = '搜索中...'
+        btn.classList.add('searching')
+        btn.disabled = true
+        
+        // 延迟跳转，让用户看到状态变化
+        setTimeout(() => {
+            window.location.href = `player.html?search=${encodeURIComponent(playerNameInput)}`
+        }, 200)
     }
 }

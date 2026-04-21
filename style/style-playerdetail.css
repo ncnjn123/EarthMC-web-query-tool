@@ -1,4 +1,4 @@
-/* ===== EarthMC Pro Theme - 城镇查询页 ===== */
+/* ===== EarthMC Pro Theme - 玩家详情页（无动态背景）===== */
 
 :root {
   --primary: #6366f1;
@@ -40,34 +40,7 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-body::before {
-  content: '';
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: 0;
-  background:
-    radial-gradient(ellipse 600px 600px at 15% 20%, var(--primary-soft) 0%, transparent 70%),
-    radial-gradient(ellipse 500px 500px at 85% 70%, var(--secondary-soft) 0%, transparent 70%);
-  animation: bg-drift 30s ease-in-out infinite alternate;
-}
-
-body::after {
-  content: '';
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: 0;
-  opacity: 0.4;
-  background-image:
-    radial-gradient(1.5px 1.5px at 15% 25%, var(--primary) 0%, transparent 100%),
-    radial-gradient(1.5px 1.5px at 55% 65%, var(--secondary) 0%, transparent 100%),
-    radial-gradient(1.5px 1.5px at 85% 35%, var(--accent) 0%, transparent 100%);
-  animation: particles-drift 25s ease-in-out infinite;
-}
-
-@keyframes bg-drift { 0%, 100% { opacity: 1; } 50% { opacity: 0.8; } }
-@keyframes particles-drift { 0%, 100% { transform: translate(0, 0); } 50% { transform: translate(1%, 1.5%); } }
+/* 无动态背景 - 纯净深色 */
 
 /* ===== Header ===== */
 header { padding: 2.5rem 1.5rem 1.25rem; text-align: center; position: relative; z-index: 1; }
@@ -101,7 +74,7 @@ header h1 { font-size: 1.375rem; font-weight: 700; color: #fff; letter-spacing: 
 #mainNav a#selected { color: #fff; background: var(--primary); font-weight: 600; }
 
 /* ===== Main ===== */
-main { max-width: 920px; margin: 0 auto 2.5rem; padding: 0 1.25rem; position: relative; z-index: 1; }
+main { max-width: 820px; margin: 0 auto 2.5rem; padding: 0 1.25rem; position: relative; z-index: 1; }
 
 #mainArea {
   background: var(--bg-elevated);
@@ -117,13 +90,14 @@ main { max-width: 920px; margin: 0 auto 2.5rem; padding: 0 1.25rem; position: re
 /* ===== 搜索栏 ===== */
 #searchNav {
   display: flex;
+  gap: 0.75rem;
   flex-wrap: wrap;
-  gap: 0.625rem;
-  margin-bottom: 1.5rem;
+  justify-content: center;
   align-items: center;
+  margin-bottom: 1.5rem;
 }
 
-#townName {
+#pName {
   flex: 1;
   min-width: 200px;
   padding: 0.875rem 1.25rem;
@@ -137,23 +111,23 @@ main { max-width: 920px; margin: 0 auto 2.5rem; padding: 0 1.25rem; position: re
   transition: var(--transition-base);
 }
 
-#townName:focus {
+#pName:focus {
   border-color: var(--primary);
   background: rgba(99, 102, 241, 0.05);
   box-shadow: 0 0 0 3px var(--primary-soft);
 }
 
-#townName::placeholder { color: var(--text-muted); }
+#pName::placeholder { color: var(--text-muted); }
 
-/* ===== 按钮 ===== */
-#listAll, #searchButton {
-  padding: 0.875rem 1.5rem;
+/* ===== 搜索按钮状态 ===== */
+#searchButton {
+  padding: 0.875rem 2rem;
   background: var(--primary);
   color: #fff;
   border: none;
   border-radius: var(--radius-full);
   font-family: inherit;
-  font-size: 0.875rem;
+  font-size: 0.9375rem;
   font-weight: 600;
   cursor: pointer;
   transition: var(--transition-base);
@@ -161,12 +135,31 @@ main { max-width: 920px; margin: 0 auto 2.5rem; padding: 0 1.25rem; position: re
   overflow: hidden;
 }
 
-#listAll:hover, #searchButton:hover {
+#searchButton:hover:not(:disabled) {
   background: #5558e3;
   transform: translateY(-2px);
   box-shadow: 0 8px 20px rgba(99, 102, 241, 0.25);
 }
 
+/* 搜索中状态 */
+#searchButton:disabled {
+  background: var(--text-muted);
+  cursor: not-allowed;
+  transform: none;
+}
+
+#searchButton.searching {
+  background: linear-gradient(90deg, var(--primary), var(--secondary), var(--primary));
+  background-size: 200% 100%;
+  animation: searching-pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes searching-pulse {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+/* 涟漪效果 */
 .ripple {
   position: absolute;
   border-radius: 50%;
@@ -191,8 +184,8 @@ main { max-width: 920px; margin: 0 auto 2.5rem; padding: 0 1.25rem; position: re
 .loading-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(12, 12, 20, 0.9);
-  backdrop-filter: blur(4px);
+  background: rgba(12, 12, 20, 0.92);
+  backdrop-filter: blur(8px);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -206,22 +199,80 @@ main { max-width: 920px; margin: 0 auto 2.5rem; padding: 0 1.25rem; position: re
 .loading-overlay.active { opacity: 1; visibility: visible; }
 
 .loading-spinner {
-  width: 44px;
-  height: 44px;
+  width: 48px;
+  height: 48px;
   border: 3px solid var(--border);
   border-top-color: var(--primary);
+  border-right-color: var(--secondary);
   border-radius: 50%;
   animation: spin 0.8s linear infinite;
 }
 
 @keyframes spin { to { transform: rotate(360deg); } }
 
-.loading-text { margin-top: 1rem; color: var(--text); font-size: 0.9375rem; font-weight: 500; }
+.loading-text { 
+  margin-top: 1.25rem; 
+  color: var(--text); 
+  font-size: 0.9375rem; 
+  font-weight: 500;
+}
 
-/* ===== 表格 ===== */
-table { display: none; }
+/* 加载进度点动画 */
+.loading-dots {
+  display: inline-flex;
+  gap: 4px;
+  margin-left: 4px;
+}
 
-#townList {
+.loading-dots span {
+  width: 4px;
+  height: 4px;
+  background: var(--primary);
+  border-radius: 50%;
+  animation: dot-bounce 1.4s ease-in-out infinite;
+}
+
+.loading-dots span:nth-child(1) { animation-delay: 0s; }
+.loading-dots span:nth-child(2) { animation-delay: 0.2s; }
+.loading-dots span:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes dot-bounce {
+  0%, 80%, 100% { transform: scale(0.6); opacity: 0.4; }
+  40% { transform: scale(1); opacity: 1; }
+}
+
+/* ===== 详情卡片 ===== */
+#baseInfo, #townAndNation, #timestamps, #status, #stats, #ranks, #friends {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 1rem 1.25rem;
+  margin-top: 0.875rem;
+}
+
+h1, h2, h3 {
+  text-align: center;
+  margin: 1.25rem 0 0.5rem;
+  color: var(--text);
+  font-weight: 600;
+}
+
+h1 { font-size: 1.25rem; }
+h2 { font-size: 1rem; color: var(--secondary); }
+
+#name {
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 0.5rem;
+  color: #fff;
+}
+
+p { margin: 0.375rem 0; font-size: 0.9375rem; color: var(--text-secondary); }
+p a { color: var(--text-link); }
+
+/* 表格 */
+table {
   width: 100%;
   border-collapse: separate;
   border-spacing: 0;
@@ -229,13 +280,13 @@ table { display: none; }
   border: 1px solid var(--border);
   border-radius: var(--radius-sm);
   overflow: hidden;
-  margin-top: 1rem;
+  margin-top: 0.5rem;
 }
 
-#townList thead { background: var(--primary-soft); }
+thead { background: var(--primary-soft); }
 
-#townList th {
-  padding: 0.875rem 1rem;
+th {
+  padding: 0.75rem 1rem;
   text-align: left;
   font-size: 0.75rem;
   text-transform: uppercase;
@@ -244,16 +295,26 @@ table { display: none; }
   font-weight: 600;
 }
 
-#townList td {
-  padding: 0.75rem 1rem;
+td {
+  padding: 0.625rem 1rem;
   border-bottom: 1px solid var(--border);
   font-size: 0.875rem;
   color: var(--text-secondary);
 }
 
-#townList tbody tr { transition: var(--transition-fast); }
-#townList tbody tr:hover { background: var(--bg-hover); }
-#townList tbody tr:last-child td { border-bottom: none; }
+tbody tr { transition: var(--transition-fast); }
+tbody tr:hover { background: var(--bg-hover); }
+tbody tr:last-child td { border-bottom: none; }
+
+/* ===== 结果渐入动画 ===== */
+.fade-in {
+  animation: fadeIn 0.4s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
 
 /* ===== Footer ===== */
 footer { text-align: center; padding: 2rem 1.5rem; color: var(--text-muted); font-size: 0.8125rem; position: relative; z-index: 1; }
@@ -265,6 +326,5 @@ footer a:hover { color: var(--primary); }
   #mainNav { display: flex; flex-wrap: wrap; border-radius: var(--radius-md); padding: 6px; }
   #mainNav a { flex: 1 1 calc(33.333% - 4px); min-width: 80px; text-align: center; font-size: 0.8125rem; padding: 0.5rem 0.5rem; }
   #searchNav { flex-direction: column; }
-  #townName { width: 100%; min-width: auto; }
-  #townList th, #townList td { padding: 0.625rem 0.75rem; }
+  #pName { width: 100%; min-width: auto; }
 }

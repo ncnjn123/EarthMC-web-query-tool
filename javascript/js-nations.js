@@ -1,7 +1,10 @@
-const serverNationInfoURL = 'api/v4/nations'
+const serverNationInfoURL = '/api/v4/nations'
 
 //查询所有国家
 function searchAll() {
+    // 显示加载动画
+    if (typeof showLoading === 'function') showLoading('正在获取国家列表...')
+    
     fetch(serverNationInfoURL)
         .then(response => response.json())
         .then(data => {
@@ -17,6 +20,13 @@ function searchAll() {
                     <td>${item.uuid}</td>
                     </tr>`)
         })
+        // 隐藏加载动画
+        if (typeof hideLoading === 'function') hideLoading()
+    })
+    .catch(error => {
+        alert("获取国家列表失败")
+        // 隐藏加载动画
+        if (typeof hideLoading === 'function') hideLoading()
     })
 }
 
@@ -24,8 +34,20 @@ function searchAll() {
 function search() {
     let nationName = document.getElementById('nationName').value
     if(nationName == '') {
-        alert("在输入框输入国家名字喵")
+        // 输入框震动
+        const input = document.getElementById('nationName')
+        input.classList.add('input-shake')
+        setTimeout(() => input.classList.remove('input-shake'), 150)
+        alert("请输入国家名称")
     } else {
-        window.location.href = `nation.html?search=${encodeURIComponent(nationName)}`
+        // 按钮变成搜索中状态
+        const btn = document.getElementById('searchButton')
+        btn.innerHTML = '搜索中...'
+        btn.classList.add('searching')
+        btn.disabled = true
+        
+        setTimeout(() => {
+            window.location.href = `nation.html?search=${encodeURIComponent(nationName)}`
+        }, 200)
     }
 }
