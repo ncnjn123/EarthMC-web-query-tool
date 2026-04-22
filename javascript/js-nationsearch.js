@@ -156,6 +156,6 @@ function search() {
     if(nationNameInput == '') {
         alert("在输入框输入国家名字喵")
     } else {
-        window.location.href = `town.html?search=${encodeURIComponent(nationNameInput)}`
+        window.location.href = `nation.html?search=${encodeURIComponent(nationNameInput)}`
     }
 }
