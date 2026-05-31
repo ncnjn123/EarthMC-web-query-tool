@@ -1,4 +1,8 @@
+//EarthMC API地址
+
 const serverInfoURL = 'https://api.earthmc.net/v4'
+
+
 let moonPhaseIndex
 let mcStartTime
 let dateChar
@@ -90,32 +94,3 @@ function timer() {
 let intervalID = setInterval(timer, 1000);
 
     })
-/*
-
-//时间自动流逝
-
-function timer() {
-    let currentTime = Math.floor((Date.now())/1000)             //获取实时时间
-    let elapsedTime = currentTime - startTime                   //获取流逝的时间
-    let newMinecraftTime = mcStartTime + elapsedTime            //用 Minecraft 初始时间 + 现实流逝的时间 获取Minecraft实时时间
-    //处理一天进位情况
-    if (newMinecraftTime < 1200) {
-        time.innerHTML = newMinecraftTime
-        dayProgressBar.value = newMinecraftTime
-        }else {
-            dateChar = dateChar + 1
-            date.innerHTML = `第${dateChar}天`
-            startTime = startTime + 1200
-            time.innerHTML = newMinecraftTime
-            dayProgressBar.value = newMinecraftTime
-            time.innerHTML = newMinecraftTime
-            moonPhaseIndex = (moonPhaseIndex + 1) % 8
-            moonPhase.innerHTML = moonPhaseTranslated[moonPhaseIndex]
-            console.log('跳过了一天喵')
-    }
-    console.log (`测试用: mcStartTime = ${mcStartTime}, startTime = ${startTime}, elapsedTime =${elapsedTime}, newMCTime = ${newMinecraftTime}`)
-}
-
-
-let intervalID = setInterval(timer, 1000);
-*/

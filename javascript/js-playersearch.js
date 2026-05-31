@@ -1,3 +1,7 @@
+//EarthMC API地址
+
+const serverTownInfoURL = '/api/v4/players'
+
 const URLString = window.location.search
 const URL = new URLSearchParams(URLString)
 const playerName = URL.get('search')
@@ -26,8 +30,6 @@ let nationRanks = document.getElementById('nationRanks');
 let friendsList = document.getElementById('friendsList')
 
 
-//EarthMC API地址
-const serverTownInfoURL = '/api/v4/players'
 fetch(serverTownInfoURL, {
     method: "POST",
     headers: {

@@ -1,4 +1,6 @@
-const serverNationInfoURL = 'api/v4/nations'
+//EarthMC API地址
+
+const serverNationInfoURL = '/api/v4/nations'
 
 //查询所有国家
 function searchAll() {
@@ -24,8 +26,10 @@ function searchAll() {
 function search() {
     let nationName = document.getElementById('nationName').value
     if(nationName == '') {
+        console.log(nationName)
         alert("在输入框输入国家名字喵")
     } else {
+        console.log(nationName)
         window.location.href = `nation.html?search=${encodeURIComponent(nationName)}`
     }
 }

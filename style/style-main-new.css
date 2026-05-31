@@ -1,0 +1,144 @@
+/*去除浏览器部分默认样式*/
+
+html, body, div, span, applet, object, iframe, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+/*粘性页脚，让Main吃满剩余页面*/
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+    flex: 1;
+}
+
+main {
+    background-color: rgb(255, 249, 250);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+}
+
+/*有关header的样式*/
+
+header {
+    width: 100vw;
+    height: 3rem;
+    background-color: rgb(255, 226, 253);
+    display: flex;
+    justify-content: space-around;
+    user-select: none;
+}
+
+#icon {
+    width: 8rem;
+    height: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+nav {
+    width: 25rem;
+    height: 3rem;
+}
+
+nav a {
+    width: 6rem;
+    height: 3rem;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+}
+
+nav a:hover {
+    background-color: rgb(250, 165, 245);;
+    transition: 0.3s;
+}
+
+/*有关main的样式*/
+main section {
+    width: 85%;
+    height: 50rem;
+    background-color: rgb(217, 234, 249);
+    border-radius: 1rem;
+}
+
+#cardHeader {
+    width: 30rem;
+    height: 2rem;
+    background-color: rgb(152, 205, 252);
+    border-radius: 1rem;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+} 
+
+.onlineStatus {
+    width: 2rem;
+    height: 2rem;
+}
+
+.cards {
+    width: 30rem;
+    height: 2rem;
+    background-color: whitesmoke;
+}
+
+#currentVersionText {
+    text-align: center;
+    font-weight: bold;
+}
+
+#playersStats {
+    display: flex;
+    justify-content: space-around;
+    font-weight: bold;
+}
+/*有关footer的样式*/
+
+footer {
+    width: 100vw;
+    height: 2rem;
+    background-color: #424242;
+    display: flex;
+    justify-content: center;
+    user-select: none;
+}
+
+footer a {
+    color: plum;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+footer a img {
+    width: 2rem;
+    height: 2rem;
+}

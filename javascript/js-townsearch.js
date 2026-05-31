@@ -1,3 +1,6 @@
+//EarthMC API地址
+const serverTownInfoURL = '/api/v4/towns'
+
 //获取地址栏中search的城镇信息
 const URLString = window.location.search
 const URL = new URLSearchParams(URLString)
@@ -10,7 +13,7 @@ const booleanMap = {
 }
 
 //给所有HTML含id的信息项一个变量
-let tName = document.getElementById('name')
+let tName = document.getElementById('name');
 let uuid = document.getElementById('uuid');
 let founder = document.getElementById('founder');
 let boardText = document.getElementById('boardText')
@@ -57,7 +60,6 @@ let Settler = document.getElementById('Settler');
 let searchButton = document.getElementById('searchButton')
 
 
-const serverTownInfoURL = '/api/v4/towns'
 fetch(serverTownInfoURL, {
     method: "POST",
     headers: {

@@ -1,3 +1,7 @@
+//EarthMC API地址
+
+const serverTownInfoURL = '/api/v4/nations'
+
 //获取地址栏中search的城镇信息
 const URLString = window.location.search
 const URL = new URLSearchParams(URLString)
@@ -50,8 +54,6 @@ let enemiesTbody = document.querySelector('#enemiesTable tbody');
 let tempedTable = 0
 
 
-//EarthMC API地址(先注释一下，开服后取消注释)
-const serverTownInfoURL = '/api/v4/nations'
 fetch(serverTownInfoURL, {
     method: "POST",
     headers: {

@@ -1,3 +1,5 @@
+//EarthMC API地址
+
 const serverTownInfoURL = '/api/v4/towns'
 
 //查询所有城镇
