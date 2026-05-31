@@ -100,7 +100,6 @@ fetch(serverTownInfoURL, {
         isNeutral.innerHTML = booleanMap[town.status.isNeutral]
         Capital.innerHTML = booleanMap[town.status.isCapital]
         isOverClaimed.innerHTML = booleanMap[town.status.isOverClaimed]
-        hasOverclaimShield.innerHTML = booleanMap[town.status.hasOverclaimShield]
         isRuined.innerHTML = booleanMap[town.status.isRuined]
         isForSale.innerHTML = booleanMap[town.status.isForSale]
         hasNation.innerHTML = booleanMap[town.status.hasNation]
