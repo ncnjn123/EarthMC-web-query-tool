@@ -9,13 +9,7 @@
 - 代理目录：/api/
 - 目标URL：api.earthmc.net
 
---关于JS中填入API地址的位置    (文件-行数-变量名)
-- js-main 第1行    serverInfoURL
-- js-playersearch 第30行    serverTownInfoURL
-- js-towns 第1行    serverTownInfoURL
-- js-townsearch 第60行    serverTownInfoURL
-- js-nations 第1行    serverNationInfoURL
-- js-nationsearch 第54行 serverTownInfoURL
-
+--关于JS中填入API地址的位置    
+均在js文件开始的地方
 
 基于MIT协议，你可以自由更改并发布
